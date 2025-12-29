@@ -43,7 +43,8 @@ config :esbuild,
 
 # Configure tailwind (the version is required)
 config :tailwind,
-  version: "4.1.7",
+  version: "4.1.18",
+  path: System.get_env("TAILWIND_BINARY") || "tailwindcss",
   portfolio: [
     args: ~w(
       --input=assets/css/app.css
