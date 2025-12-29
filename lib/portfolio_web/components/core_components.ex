@@ -469,4 +469,66 @@ defmodule PortfolioWeb.CoreComponents do
   def translate_errors(errors, field) when is_list(errors) do
     for {^field, {msg, opts}} <- errors, do: translate_error({msg, opts})
   end
+
+  @doc """
+  Renders a project card for the projects page.
+
+  ## Examples
+
+      <.project_card 
+        title="My Project" 
+        description="A cool project I built"
+        technologies={["Elixir", "Phoenix", "React"]}
+        github_url="https://github.com/username/project"
+        demo_url="https://demo.example.com"
+      />
+  """
+  attr :title, :string, required: true, doc: "The project title"
+  attr :description, :string, required: true, doc: "Project description"
+  attr :technologies, :list, default: [], doc: "List of technologies used"
+  attr :github_url, :string, default: nil, doc: "GitHub repository URL"
+  attr :demo_url, :string, default: nil, doc: "Live demo URL"
+  attr :image, :string, default: nil, doc: "Project screenshot/thumbnail URL"
+
+  def project_card(assigns) do
+    ~H"""
+    <div class="card bg-base-200 border border-base-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 scale-90">
+      <div class="card-body">
+        <h2 class="card-title text-xl font-bold">{@title}</h2>
+        <p class="text-base-content/70">{@description}</p>
+
+        <figure :if={@image} class="aspect-video max-h-64">
+          <img src={@image} alt={"Screenshot of #{@title}"} class="w-full h-full object-contain rounded-lg" />
+        </figure>
+
+        <div :if={@technologies != []} class="flex flex-wrap gap-2 mt-4">
+          <span :for={tech <- @technologies} class="badge badge-outline badge-sm">
+            {tech}
+          </span>
+        </div>
+
+        <div class="card-actions justify-between mt-6">
+          <a
+            :if={@github_url}
+            href={@github_url}
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary btn-sm"
+          >
+            <.icon name="hero-code-bracket" class="w-4 h-4 mr-1" /> Code
+          </a>
+          <a
+            :if={@demo_url}
+            href={@demo_url}
+            target="_blank"
+            rel="noopener"
+            class="btn btn-outline btn-sm"
+          >
+            <.icon name="hero-globe-alt" class="w-4 h-4 mr-1" /> Demo
+          </a>
+        </div>
+      </div>
+    </div>
+    """
+  end
 end

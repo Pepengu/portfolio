@@ -35,39 +35,51 @@ defmodule PortfolioWeb.Layouts do
 
   def app(assigns) do
     ~H"""
-    <header class="navbar px-4 sm:px-6 lg:px-8">
-      <div class="flex-1">
-        <a href="/" class="flex-1 flex w-fit items-center gap-2">
-          <img src={~p"/images/logo.svg"} width="36" />
-          <span class="text-sm font-semibold">v{Application.spec(:phoenix, :vsn)}</span>
-        </a>
-      </div>
-      <div class="flex-none">
-        <ul class="flex flex-column px-1 space-x-4 items-center">
-          <li>
-            <a href="https://phoenixframework.org/" class="btn btn-ghost">Website</a>
-          </li>
-          <li>
-            <a href="https://github.com/phoenixframework/phoenix" class="btn btn-ghost">GitHub</a>
-          </li>
-          <li>
-            <.theme_toggle />
-          </li>
-          <li>
-            <a href="https://hexdocs.pm/phoenix/overview.html" class="btn btn-primary">
-              Get Started <span aria-hidden="true">&rarr;</span>
+    <div class="min-h-screen flex flex-col">
+      <header class="navbar px-4 sm:px-6 lg:px-8 bg-base-100 shadow-sm">
+        <div class="navbar-start">
+          <a href="/" class="btn btn-ghost text-xl font-bold">
+            Pepengu
+          </a>
+        </div>
+
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 space-x-2">
+            <li><a href="blogs" class="btn btn-ghost">Blogs</a></li>
+            <li><a href="projects" class="btn btn-ghost">Projects</a></li>
+            <li><a href="about" class="btn btn-ghost">About</a></li>
+            <li><a href="contact" class="btn btn-ghost">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="navbar-end space-x-2">
+          <.theme_toggle />
+        </div>
+      </header>
+
+      <main class="flex-1 px-4 py-20 sm:px-6 lg:px-8">
+          {render_slot(@inner_block)}
+      </main>
+
+      <footer class="px-4 py-8 sm:px-6 lg:px-8 bg-base-200">
+        <div class="mx-auto max-w-2xl text-center space-y-4">
+          <div class="flex justify-center space-x-6">
+            <a href="#" class="text-base-content/60 hover:text-base-content transition-colors">
+              <.icon name="hero-envelope" class="size-5" />
             </a>
-          </li>
-        </ul>
-      </div>
-    </header>
-
-    <main class="px-4 py-20 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl space-y-4">
-        {render_slot(@inner_block)}
-      </div>
-    </main>
-
+            <a href="#" class="text-base-content/60 hover:text-base-content transition-colors">
+              <.icon name="hero-globe-alt" class="size-5" />
+            </a>
+            <a href="#" class="text-base-content/60 hover:text-base-content transition-colors">
+              <.icon name="hero-code-bracket" class="size-5" />
+            </a>
+          </div>
+          <p class="text-sm text-base-content/60">
+            © 2025 Portfolio. Built with Phoenix Framework.
+          </p>
+        </div>
+      </footer>
+    </div>
     <.flash_group flash={@flash} />
     """
   end
