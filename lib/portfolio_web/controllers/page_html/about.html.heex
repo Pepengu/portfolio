@@ -1,13 +1,229 @@
 <Layouts.app flash={@flash}>
-  <section class="flex items-center justify-center bg-base-300 py-20 min-h-full">
-    <div class="text-center space-y-6">
-      <h1 class="text-6xl font-bold text-base-content">
+  <div class="min-h-full w-full max-w-none">
+    <section class="text-center mb-16">
+      <h1 class="text-6xl font-bold text-base-content mb-6">
         About Me
       </h1>
-
       <p class="text-xl text-base-content/60">
-        Learn more about my background and experience
+        Get to know me better
       </p>
-    </div>
-  </section>
+    </section>
+  </div>
+
+  <div class="mx-auto max-w-6xl">
+    <section class="w-full px-4 sm:px-6 lg:px-6">
+      <div class="hero bg-base-200 rounded-box mb-12">
+        <div class="hero-content flex-col lg:flex-row">
+          <div class="avatar">
+            <div class="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+              <img src="/images/profile.jpg" alt="Profile picture" />
+            </div>
+          </div>
+          <div class="text-center lg:text-left lg:ml-8">
+            <h2 class="text-3xl font-bold">Hi, I'm Daniil</h2>
+            <p class="py-4 text-lg">
+              I'm a student at St. Petersburg State University passionate about software development.
+              My interests span from low-level systems programming to modern web development,
+              with a special focus on building efficient and elegant solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div class="card bg-base-200 border border-base-300">
+          <div class="card-body">
+            <h3 class="card-title text-2xl">
+              <.icon name="hero-academic-cap" class="w-6 h-6" /> Education
+            </h3>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-semibold">St. Petersburg State University</h4>
+                <p class="text-base-content/70">Computer Science Student</p>
+                <p class="text-sm text-base-content/60">Current</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-base-200 border border-base-300">
+          <div class="card-body">
+            <h3 class="card-title text-2xl">
+              <.icon name="hero-code-bracket" class="w-6 h-6" /> Technical Interests
+            </h3>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <div class="badge badge-primary badge-lg">Low-level Programming</div>
+              <div class="badge badge-secondary badge-lg">Web Development</div>
+              <div class="badge badge-accent badge-lg">Competitive Programming</div>
+              <div class="badge badge-neutral badge-lg">Systems Programming</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-200 border border-base-300 mb-12">
+        <div class="card-body">
+          <h3 class="card-title text-2xl mb-6">
+            <.icon name="hero-wrench-screwdriver" class="w-6 h-6" /> Technologies I Work With
+          </h3>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+            <div class="text-center">
+              <img
+                height="48"
+                width="48"
+                src="https://cdn.simpleicons.org/elixir"
+                class="mx-auto mb-2"
+              />
+              <p class="text-sm font-medium">Elixir</p>
+            </div>
+            <div class="text-center">
+              <img
+                height="48"
+                width="48"
+                src="https://cdn.simpleicons.org/rust"
+                class="mx-auto mb-2"
+              />
+              <p class="text-sm font-medium">Rust</p>
+            </div>
+            <div class="text-center">
+              <img
+                height="48"
+                width="48"
+                src="https://cdn.simpleicons.org/c"
+                class="mx-auto mb-2"
+              />
+              <p class="text-sm font-medium">C</p>
+            </div>
+            <div class="text-center">
+              <img
+                height="48"
+                width="48"
+                src="https://cdn.simpleicons.org/cplusplus"
+                class="mx-auto mb-2"
+              />
+              <p class="text-sm font-medium">C++</p>
+            </div>
+            <div class="text-center">
+              <img
+                height="48"
+                width="48"
+                src="https://cdn.simpleicons.org/typescript"
+                class="mx-auto mb-2"
+              />
+              <p class="text-sm font-medium">TypeScript</p>
+            </div>
+            <div class="text-center">
+              <img
+                height="48"
+                width="48"
+                src="https://cdn.simpleicons.org/javascript"
+                class="mx-auto mb-2"
+              />
+              <p class="text-sm font-medium">JavaScript</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div class="text-center">
+              <img
+                height="48"
+                width="48"
+                src="https://cdn.simpleicons.org/phoenixframework"
+                class="mx-auto mb-2"
+              />
+              <p class="text-sm font-medium">Phoenix</p>
+            </div>
+            <div class="text-center">
+              <img
+                height="48"
+                width="48"
+                src="https://cdn.simpleicons.org/react"
+                class="mx-auto mb-2"
+              />
+              <p class="text-sm font-medium">React</p>
+            </div>
+            <div class="text-center">
+              <img
+                height="48"
+                width="48"
+                src="https://cdn.simpleicons.org/wayland"
+                class="mx-auto mb-2"
+              />
+              <p class="text-sm font-medium">Wayland</p>
+            </div>
+            <div class="text-center">
+              <img
+                height="48"
+                width="48"
+                src="https://cdn.simpleicons.org/linux/gray"
+                class="mx-auto mb-2"
+              />
+              <p class="text-sm font-medium">Linux</p>
+            </div>
+            <div class="text-center">
+              <img
+                height="48"
+                width="48"
+                src="https://cdn.simpleicons.org/docker"
+                class="mx-auto mb-2"
+              />
+              <p class="text-sm font-medium">Docker</p>
+            </div>
+            <div class="text-center">
+              <img
+                height="48"
+                width="48"
+                src="https://cdn.simpleicons.org/typst"
+                class="mx-auto mb-2"
+              />
+              <p class="text-sm font-medium">Typst</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-200 border border-base-300 mb-12">
+        <div class="card-body">
+          <h3 class="card-title text-2xl">
+            <.icon name="hero-book-open" class="w-6 h-6" /> Currently Exploring
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold mb-2">Deepening Knowledge In:</h4>
+              <ul class="space-y-1 text-base-content/80">
+                <li>• Systems programming with Rust</li>
+                <li>• Wayland protocol and GUI development</li>
+                <li>• Competitive programming algorithms</li>
+                <li>• Functional programming paradigms</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Recent Projects:</h4>
+              <ul class="space-y-1 text-base-content/80">
+                <li>• Building native Wayland applications</li>
+                <li>• Creating academic presentation templates</li>
+                <li>• Developing this portfolio website</li>
+                <li>• Contributing to CP educational materials</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <div class="card bg-primary text-primary-content">
+          <div class="card-body">
+            <h3 class="card-title justify-center text-2xl">Let's Connect!</h3>
+            <p class="mb-4">I'm always interested in new opportunities and collaborations</p>
+            <div class="card-actions justify-center">
+              <a href="/contact" class="btn btn-neutral">
+                <.icon name="hero-envelope" class="w-4 h-4 mr-2" /> Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layouts.app>

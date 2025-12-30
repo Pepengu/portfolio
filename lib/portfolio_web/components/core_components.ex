@@ -498,7 +498,11 @@ defmodule PortfolioWeb.CoreComponents do
         <p class="text-base-content/70">{@description}</p>
 
         <figure :if={@image} class="aspect-video max-h-64">
-          <img src={@image} alt={"Screenshot of #{@title}"} class="w-full h-full object-contain rounded-lg" />
+          <img
+            src={@image}
+            alt={"Screenshot of #{@title}"}
+            class="w-full h-full object-contain rounded-lg"
+          />
         </figure>
 
         <div :if={@technologies != []} class="flex flex-wrap gap-2 mt-4">

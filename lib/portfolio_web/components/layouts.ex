@@ -58,7 +58,7 @@ defmodule PortfolioWeb.Layouts do
       </header>
 
       <main class="flex-1 px-4 py-20 sm:px-6 lg:px-8">
-          {render_slot(@inner_block)}
+        {render_slot(@inner_block)}
       </main>
 
       <footer class="px-4 py-8 sm:px-6 lg:px-8 bg-base-200">

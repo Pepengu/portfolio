@@ -35,3 +35,7 @@ portfolio-*.tar
 npm-debug.log
 /assets/node_modules/
 
+
+.postgres/
+.s.PGSQL.5432.lock
+pg.log

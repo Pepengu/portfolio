@@ -10,16 +10,13 @@
     </section>
   </div>
 
-  <div class="mx-auto max-w-9xl"> 
-    <section class="w-full px-4 sm:px-6 lg:px-6">
+  <div class="mx-auto max-w-9xl">
+    <!-- Personal Projects Section -->
+    <section class="w-full px-4 sm:px-6 lg:px-6 mb-16">
+      <h2 class="text-4xl font-bold text-base-content mb-8 text-center">
+        Personal Projects
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8">
-        <.project_card
-          title="Portfolio Website"
-          description="A modern portfolio built with Phoenix Framework and Tailwind CSS"
-          technologies={["Elixir", "Phoenix", "Tailwind", "DaisyUI"]}
-          github_url="https://github.com/Pepengu/portfolio"
-        />
-
         <.project_card
           title="Capybar"
           description="A Wayland native bar that is built without huge UI frameworks and talks directly to Wayland protocol"
@@ -37,10 +34,32 @@
         />
 
         <.project_card
+          title="Portfolio Website"
+          description="A modern portfolio built with Phoenix Framework and Tailwind CSS"
+          technologies={["Elixir", "Phoenix", "Tailwind", "DaisyUI"]}
+          github_url="https://github.com/Pepengu/portfolio"
+        />
+
+        <.project_card
           title="SPBU CP Materials"
           description="Comprehensive collection of competitive programming materials, algorithms, and problem solutions for students at Saint Petersburg State University"
           technologies={["Typst", "C++", "Python", "Algorithms"]}
           github_url="https://github.com/kamenkremen/spbu-cp-materials"
+        />
+      </div>
+    </section>
+    
+<!-- Contributions Section -->
+    <section class="w-full px-4 sm:px-6 lg:px-6">
+      <h2 class="text-4xl font-bold text-base-content mb-8 text-center">
+        Contributions
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8">
+        <.project_card
+          title="Martos"
+          description="Multi-agent real-time operating system"
+          technologies={["Rust"]}
+          github_url="https://github.com/IvanArkhipov1999/Martos"
         />
       </div>
     </section>
