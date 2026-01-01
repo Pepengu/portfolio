@@ -1,0 +1,51 @@
+<Layouts.app flash={@flash}>
+  <div class="min-h-screen flex items-center justify-center bg-base-200">
+    <div class="card w-full max-w-md bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title text-center justify-center text-2xl font-bold mb-6">
+          Admin Login
+        </h2>
+
+        <.form for={%{}} as={:admin} action={~p"/admin/login"} method="post" class="space-y-4">
+          <div class="form-control">
+            <label for="admin_username" class="label">
+              <span class="label-text">Username</span>
+            </label>
+            <input
+              name="admin[username]"
+              value={Map.get(@changeset, :username, "")}
+              type="text"
+              placeholder="Enter username"
+              required
+              class="input input-bordered w-full"
+            />
+          </div>
+
+          <div class="form-control">
+            <label for="admin_password" class="label">
+              <span class="label-text">Password</span>
+            </label>
+            <input
+              name="admin[password]"
+              type="password"
+              placeholder="Enter password"
+              required
+              class="input input-bordered w-full"
+            />
+          </div>
+
+          <div class="form-control mt-6">
+            <.button type="submit" class="btn btn-primary w-full">
+              Sign In
+            </.button>
+          </div>
+        </.form>
+
+        <div class="divider">Public Access</div>
+        <div class="text-center">
+          <a href={~p"/"} class="link link-primary">← Back to Portfolio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layouts.app>

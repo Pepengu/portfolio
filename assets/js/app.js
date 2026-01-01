@@ -24,6 +24,15 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import {hooks as colocatedHooks} from "phoenix-colocated/portfolio"
 import topbar from "../vendor/topbar"
+// Import highlight.js for syntax highlighting
+import hljs from "highlight.js/lib/core"
+import elixir from "highlight.js/lib/languages/elixir"
+import javascript from "highlight.js/lib/languages/javascript"
+
+// Register languages
+hljs.registerLanguage("elixir", elixir)
+hljs.registerLanguage("javascript", javascript)
+hljs.registerLanguage("js", javascript)
 
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 const liveSocket = new LiveSocket("/live", Socket, {
@@ -45,6 +54,19 @@ liveSocket.connect()
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
+
+// Initialize syntax highlighting
+const highlightCode = () => {
+  hljs.highlightAll()
+}
+
+// Highlight on page load
+document.addEventListener('DOMContentLoaded', highlightCode)
+
+// Re-highlight after LiveView updates
+document.addEventListener('phx:page-loading-stop', () => {
+  setTimeout(highlightCode, 100)
+})
 
 // The lines below enable quality of life phoenix_live_reload
 // development features:

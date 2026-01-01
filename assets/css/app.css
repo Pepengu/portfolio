@@ -6,6 +6,12 @@
 @source "../js";
 @source "../../lib/portfolio_web";
 
+/* Tailwind Typography for prose styling */
+@plugin "@tailwindcss/typography";
+
+/* Import highlight.js Tokyo Night dark theme as base */
+@import "highlight.js/scss/tokyo-night-dark.scss";
+
 /* A Tailwind plugin that makes "hero-#{ICON}" classes available.
    The heroicons installation itself is managed by your mix.exs */
 @plugin "../vendor/heroicons";
@@ -101,5 +107,94 @@
 
 /* Make LiveView wrapper divs transparent for layout */
 [data-phx-session], [data-phx-teleported-src] { display: contents }
+
+/* Tokyo Night Light theme overrides for light mode */
+[data-theme="light"] .hljs-meta,
+[data-theme="light"] .hljs-comment {
+  color: #9699a3
+}
+
+[data-theme="light"] .hljs-tag,
+[data-theme="light"] .hljs-doctag,
+[data-theme="light"] .hljs-selector-id,
+[data-theme="light"] .hljs-selector-class,
+[data-theme="light"] .hljs-regexp,
+[data-theme="light"] .hljs-template-tag,
+[data-theme="light"] .hljs-selector-pseudo,
+[data-theme="light"] .hljs-selector-attr,
+[data-theme="light"] .hljs-variable.language_,
+[data-theme="light"] .hljs-deletion {
+  color: #8c4351
+}
+
+[data-theme="light"] .hljs-variable,
+[data-theme="light"] .hljs-template-variable,
+[data-theme="light"] .hljs-number,
+[data-theme="light"] .hljs-literal,
+[data-theme="light"] .hljs-type,
+[data-theme="light"] .hljs-params,
+[data-theme="light"] .hljs-link {
+  color: #965027
+}
+
+[data-theme="light"] .hljs-built_in,
+[data-theme="light"] .hljs-attribute {
+  color: #8f5e15
+}
+
+[data-theme="light"] .hljs-keyword,
+[data-theme="light"] .hljs-title.function_,
+[data-theme="light"] .hljs-title,
+[data-theme="light"] .hljs-title.class_,
+[data-theme="light"] .hljs-title.class_.inherited__,
+[data-theme="light"] .hljs-subst,
+[data-theme="light"] .hljs-property,
+[data-theme="light"] .hljs-name,
+[data-theme="light"] .hljs-operator,
+[data-theme="light"] .hljs-keyword,
+[data-theme="light"] .hljs-char.escape_,
+[data-theme="light"] .hljs-attr {
+  color: #0f4b6e
+}
+
+[data-theme="light"] .hljs-selector-tag {
+  color: #166775
+}
+
+[data-theme="light"] .hljs-quote,
+[data-theme="light"] .hljs-string,
+[data-theme="light"] .hljs-symbol,
+[data-theme="light"] .hljs-bullet,
+[data-theme="light"] .hljs-addition {
+  color: #485e30
+}
+
+[data-theme="light"] .hljs-code,
+[data-theme="light"] .hljs-formula,
+[data-theme="light"] .hljs-section {
+  color: #34548a
+}
+
+[data-theme="light"] .hljs-punctuation {
+  color: #343b58
+}
+
+[data-theme="light"] .hljs {
+  background: #d5d6db;
+  color: #565a6e
+}
+
+/* Let highlight.js themes provide backgrounds */
+.prose pre {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 1rem 0 !important;
+}
+
+.prose pre code {
+  padding: 1rem !important;
+  border-radius: 0.5rem !important;
+}
 
 /* This file is for your main application CSS */

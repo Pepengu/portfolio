@@ -1,12 +1,15 @@
 defmodule PortfolioWeb.PageController do
   use PortfolioWeb, :controller
 
+  alias Portfolio.Blogs
+
   def home(conn, _params) do
     render(conn, :home)
   end
 
   def blogs(conn, _params) do
-    render(conn, :blogs)
+    blogs = Blogs.list_published_blogs()
+    render(conn, :blogs, blogs: blogs)
   end
 
   def projects(conn, _params) do

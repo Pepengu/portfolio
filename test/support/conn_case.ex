@@ -35,4 +35,15 @@ defmodule PortfolioWeb.ConnCase do
     Portfolio.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
+
+  @doc """
+  Logs in an admin user for testing.
+
+  It returns an updated connection.
+  """
+  def log_in_admin(conn, username \\ "admin") do
+    conn
+    |> Phoenix.ConnTest.init_test_session(%{})
+    |> Plug.Conn.put_session(:admin_user, %{username: username, role: :admin})
+  end
 end

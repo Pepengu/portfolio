@@ -7,6 +7,19 @@
 # General application configuration
 import Config
 
+config :portfolio, :scopes,
+  user: [
+    default: true,
+    module: Portfolio.Accounts.Scope,
+    assign_key: :current_scope,
+    access_path: [:user, :id],
+    schema_key: :user_id,
+    schema_type: :id,
+    schema_table: :users,
+    test_data_fixture: Portfolio.AccountsFixtures,
+    test_setup_helper: :register_and_log_in_user
+  ]
+
 config :portfolio,
   ecto_repos: [Portfolio.Repo],
   generators: [timestamp_type: :utc_datetime]
@@ -20,7 +33,7 @@ config :portfolio, PortfolioWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Portfolio.PubSub,
-  live_view: [signing_salt: "OFQt3cTg"]
+  live_view: [signing_salt: System.get_env("LIVEVIEW_SIGNING_SALT") || "OFQt3cTg"]
 
 # Configures the mailer
 #

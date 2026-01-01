@@ -33,12 +33,20 @@
 
       shellHook = ''
 
+        # Load environment variables from .env file if it exists
+        if [ -f .env ]; then
+          export $(grep -v "^#" .env | xargs)
+          echo ".env file loaded successfully"
+        else
+          echo "Warning: .env file not found. Create one with admin credentials."
+        fi
+
         if [ ! -d $PGDATA ]; then
           initdb --auth-host=trust --auth-local=trust
           # Enable TCP connections
           echo "listen_addresses = 'localhost'" >> $PGDATA/postgresql.conf
           echo "port = 5432" >> $PGDATA/postgresql.conf
-          
+
           # Start PostgreSQL temporarily to create the postgres user
           pg_ctl start -o "-k $PWD -h localhost" -w
           psql -h localhost -d postgres -c "CREATE USER postgres WITH SUPERUSER PASSWORD 'postgres';"

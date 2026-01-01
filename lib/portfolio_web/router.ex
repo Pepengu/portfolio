@@ -10,6 +10,10 @@ defmodule PortfolioWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :admin do
+    plug PortfolioWeb.Plugs.Auth
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -19,9 +23,26 @@ defmodule PortfolioWeb.Router do
 
     get "/", PageController, :home
     get "/blogs", PageController, :blogs
+    get "/blogs/:slug", BlogController, :show
     get "/projects", PageController, :projects
     get "/about", PageController, :about
     get "/contact", PageController, :contact
+  end
+
+  scope "/admin", PortfolioWeb do
+    pipe_through [:browser, :admin]
+
+    live "/blogs", BlogLive.Index, :index
+    live "/blogs/new", BlogLive.Index, :new
+    live "/blogs/:id/edit", BlogLive.Index, :edit
+  end
+
+  scope "/admin", PortfolioWeb do
+    pipe_through :browser
+
+    get "/login", LoginController, :new
+    post "/login", LoginController, :create
+    delete "/logout", LoginController, :delete
   end
 
   # Other scopes may use custom stacks.
